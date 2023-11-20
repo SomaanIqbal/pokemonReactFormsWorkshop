@@ -13,7 +13,7 @@ const SelectedPokemon = ({ selectedPokemonName,setSelectedPokemonName }) => {
                 const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${selectedPokemonName}`)
                 const jsonResponse = await response.json();
 
-                // console.log("jsonResponse",jsonResponse);
+                console.log("jsonResponse",jsonResponse);
                 setPokemonDetails(jsonResponse);
 
             } catch (error) {
@@ -25,7 +25,7 @@ const SelectedPokemon = ({ selectedPokemonName,setSelectedPokemonName }) => {
 
     return (
         <div>
-            {pokemonDetails ? (<h1>{pokemonDetails.name} <br></br>Height:{pokemonDetails.height}</h1>) : (<h2>loading ...</h2>)}
+            {pokemonDetails ? (<h1>{pokemonDetails.name} <br></br>Height:{pokemonDetails.height} <br></br> Weight:{pokemonDetails.weight}  </h1>) : (<h2>loading ...</h2>)}
             <button
                 onClick={() => {
                     setSelectedPokemonName(null);
